@@ -1,0 +1,15 @@
+.background {
+    background: black;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.image {
+    background-image: url(../assets/background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center;
+    height: 100%;
+}

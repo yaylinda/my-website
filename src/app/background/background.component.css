@@ -1,0 +1,16 @@
+/* .image {
+    z-index: 0;
+    background-image: url(../assets/background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center;
+    opacity: 0.8;
+    height: 100%;
+
+} */
+
+img {
+    display: block;
+    margin: auto;
+}

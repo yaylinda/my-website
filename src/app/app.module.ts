@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MarkerComponent } from './marker/marker.component';
 import { PersonComponent } from './person/person.component';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MarkerComponent,
-    PersonComponent
+    PersonComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

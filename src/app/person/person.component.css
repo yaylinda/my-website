@@ -1,7 +1,7 @@
 .pikachu {
     background: url("../../assets/pikachu-female.gif");
-    height: 50px;
-    width: 50px;
+    height: 16px;
+    width: 16px;
     position: absolute;
     background-size: contain;
     z-index: 10;

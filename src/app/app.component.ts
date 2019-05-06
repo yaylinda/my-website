@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener, ViewChild, ElementRef } from '@angular/core';
+import { MarkerComponent } from './marker/marker.component';
 
 @Component({
   selector: 'app-root',
@@ -14,25 +15,35 @@ export class AppComponent implements OnInit {
   @ViewChild("person", {read: ElementRef}) 
   personRef: ElementRef;
 
-  @ViewChild("marker", {read: ElementRef}) 
-  markerRef: ElementRef;
+  // @ViewChild("educationMarker") 
+  // set educationMarker(m: MarkerComponent) {
+  //   this.educationMarkerComp = m;
+  // }
+
+  @ViewChild("educationMarker", {read: ElementRef}) 
+  educationMarkerRef: ElementRef;
+
+  // @ViewChild("firstInternshipMarker") 
+  // firstInternshipMarkerRef: ElementRef;
+
+  // @ViewChild("secondInternshipMarker") 
+  // secondInternshipMarkerRef: ElementRef;
+
+  // @ViewChild("thirdInternshipMarker") 
+  // thirdInternshipMarkerRef: ElementRef;
+
+  // @ViewChild("capitalOneTDPMarker") 
+  // capitalOneTDPMarkerRef: ElementRef;
+
+  // @ViewChild("capitalOneMNavMarker") 
+  // capitalOneMNavMarkerRef: ElementRef;
   
   gridSize: number;
-  personGridX: number;
-  personGridY: number;
-  markerGridX: number;
-  markerGridY: number;
   moveInterval: number;
   allowMove: boolean;
 
   constructor() {
     this.gridSize = 16;
-
-    this.personGridX = 6;
-    this.personGridY = 18;
-
-    this.markerGridX = 9;
-    this.markerGridY = 13;
 
     this.moveInterval = this.gridSize / 2;
     this.allowMove = true;
@@ -50,11 +61,11 @@ export class AppComponent implements OnInit {
     const topOffset = this.backgroundRef.nativeElement.querySelector('img').getBoundingClientRect().y;
     console.log(`topOffset: ${topOffset}`);
 
-    this.personRef.nativeElement.style.left = `${leftOffset + this.gridSize * this.personGridX}px`;
-    this.personRef.nativeElement.style.top = `${topOffset + this.gridSize * this.personGridY}px`;
+    this.personRef.nativeElement.style.left = `${leftOffset + this.gridSize * this.personRef.nativeElement.getAttribute('gridX')}px`;
+    this.personRef.nativeElement.style.top = `${topOffset + this.gridSize * this.personRef.nativeElement.getAttribute('gridY')}px`;
 
-    this.markerRef.nativeElement.style.left = `${leftOffset + this.gridSize * this.markerGridX}px`;
-    this.markerRef.nativeElement.style.top = `${topOffset + this.gridSize * this.markerGridY}px`;
+    this.educationMarkerRef.nativeElement.style.left = `${leftOffset + this.gridSize * this.educationMarkerRef.nativeElement.getAttribute('gridX')}px`;
+    this.educationMarkerRef.nativeElement.style.top = `${topOffset + this.gridSize * this.educationMarkerRef.nativeElement.getAttribute('gridY')}px`;
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -91,23 +102,23 @@ export class AppComponent implements OnInit {
         break;
     }
 
-    if (this.calculateCollision()) {
+    if (this.calculateCollision(this.educationMarkerRef)) {
       console.log("COLLIDE!");
-      this.markerRef.nativeElement.querySelector('.marker').classList.add('marker-selected');
+      this.educationMarkerRef.nativeElement.querySelector('.marker').classList.add('marker-selected');
     } else {
-      this.markerRef.nativeElement.querySelector('.marker').classList.remove('marker-selected');
+      this.educationMarkerRef.nativeElement.querySelector('.marker').classList.remove('marker-selected');
     }
   }
 
-  calculateCollision() {
+  calculateCollision(markerRef: ElementRef) {
     const personLeft = this.personRef.nativeElement.getBoundingClientRect().left;
     const personRight = personLeft + this.gridSize
     const personTop = this.personRef.nativeElement.getBoundingClientRect().top;
     const personBottom = personTop + this.gridSize;
 
-    const markerLeft = this.markerRef.nativeElement.getBoundingClientRect().left;
+    const markerLeft = markerRef.nativeElement.getBoundingClientRect().left;
     const markerRight = markerLeft + this.gridSize;
-    const markerTop = this.markerRef.nativeElement.getBoundingClientRect().top;
+    const markerTop = markerRef.nativeElement.getBoundingClientRect().top;
     const markerBottom = markerTop + this.gridSize;
 
     const x_overlap = Math.max(0, Math.min(personRight, markerRight) - Math.max(personLeft, markerLeft));

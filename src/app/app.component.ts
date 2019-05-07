@@ -9,63 +9,54 @@ import { MarkerComponent } from './marker/marker.component';
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild("background", {read: ElementRef}) 
-  backgroundRef: ElementRef;
-
   @ViewChild("person", {read: ElementRef}) 
   personRef: ElementRef;
 
-  // @ViewChild("educationMarker") 
-  // set educationMarker(m: MarkerComponent) {
-  //   this.educationMarkerComp = m;
-  // }
+  @ViewChild("childhoodMarker", {read: ElementRef}) 
+  childhoodMarker: ElementRef;
 
-  @ViewChild("educationMarker", {read: ElementRef}) 
-  educationMarkerRef: ElementRef;
+  @ViewChild("collegeMarker", {read: ElementRef}) 
+  collegeMarker: ElementRef;
 
-  // @ViewChild("firstInternshipMarker") 
-  // firstInternshipMarkerRef: ElementRef;
+  @ViewChild("internshipsMarker", {read: ElementRef}) 
+  internshipsMarker: ElementRef;
 
-  // @ViewChild("secondInternshipMarker") 
-  // secondInternshipMarkerRef: ElementRef;
+  @ViewChild("capitalOnePart1Marker", {read: ElementRef}) 
+  capitalOnePart1Marker: ElementRef;
 
-  // @ViewChild("thirdInternshipMarker") 
-  // thirdInternshipMarkerRef: ElementRef;
+  @ViewChild("capitalOnePart2Marker", {read: ElementRef}) 
+  capitalOnePart2Marker: ElementRef;
 
-  // @ViewChild("capitalOneTDPMarker") 
-  // capitalOneTDPMarkerRef: ElementRef;
-
-  // @ViewChild("capitalOneMNavMarker") 
-  // capitalOneMNavMarkerRef: ElementRef;
-  
   gridSize: number;
   moveInterval: number;
-  allowMove: boolean;
+  markersList: ElementRef[];
 
   constructor() {
+    console.log('constructor called...');
     this.gridSize = 16;
-
     this.moveInterval = this.gridSize / 2;
-    this.allowMove = true;
   }
 
   ngOnInit() {
     console.log('onInit called...');
+    this.markersList = [
+      this.childhoodMarker,
+      this.collegeMarker, 
+      this.internshipsMarker,
+      this.capitalOnePart1Marker,
+      this.capitalOnePart2Marker
+    ];
     this.setMarkerLocations();
   }
 
   setMarkerLocations() {
-    const leftOffset = this.backgroundRef.nativeElement.querySelector('img').getBoundingClientRect().x;
-    console.log(`leftOffset: ${leftOffset}`);
+    this.personRef.nativeElement.style.left = `${this.gridSize * this.personRef.nativeElement.getAttribute('gridX')}px`;
+    this.personRef.nativeElement.style.top = `${this.gridSize * this.personRef.nativeElement.getAttribute('gridY')}px`;
 
-    const topOffset = this.backgroundRef.nativeElement.querySelector('img').getBoundingClientRect().y;
-    console.log(`topOffset: ${topOffset}`);
-
-    this.personRef.nativeElement.style.left = `${leftOffset + this.gridSize * this.personRef.nativeElement.getAttribute('gridX')}px`;
-    this.personRef.nativeElement.style.top = `${topOffset + this.gridSize * this.personRef.nativeElement.getAttribute('gridY')}px`;
-
-    this.educationMarkerRef.nativeElement.style.left = `${leftOffset + this.gridSize * this.educationMarkerRef.nativeElement.getAttribute('gridX')}px`;
-    this.educationMarkerRef.nativeElement.style.top = `${topOffset + this.gridSize * this.educationMarkerRef.nativeElement.getAttribute('gridY')}px`;
+    this.markersList.forEach(m => {
+      m.nativeElement.style.left = `${this.gridSize * m.nativeElement.getAttribute('gridX')}px`;
+      m.nativeElement.style.top = `${this.gridSize * m.nativeElement.getAttribute('gridY')}px`;
+    });
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -102,12 +93,14 @@ export class AppComponent implements OnInit {
         break;
     }
 
-    if (this.calculateCollision(this.educationMarkerRef)) {
-      console.log("COLLIDE!");
-      this.educationMarkerRef.nativeElement.querySelector('.marker').classList.add('marker-selected');
-    } else {
-      this.educationMarkerRef.nativeElement.querySelector('.marker').classList.remove('marker-selected');
-    }
+    this.markersList.forEach(m => {
+      if (this.calculateCollision(m)) {
+        console.log(`COLLIDE! with: ${m.nativeElement.getAttribute('label')}`);
+        m.nativeElement.querySelector('.marker').classList.add('marker-selected');
+      } else {
+        m.nativeElement.querySelector('.marker').classList.remove('marker-selected');
+      }
+    });
   }
 
   calculateCollision(markerRef: ElementRef) {

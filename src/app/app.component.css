@@ -1,11 +1,48 @@
-app-background {
-    position: fixed;
+.background-wrapper {
+    position: relative;
 }
 
-app-person {
-    position: fixed;
+.person {
+    background: url("../assets/pikachu-female.gif");
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    background-size: contain;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
 }
 
-app-marker {
-    position: fixed;
+.marker {
+    border: 2px solid white;
+    border-radius: 16px;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite; 
+    opacity: 0.0
+}
+
+.marker:hover {
+    cursor: pointer;
+    border: 2px solid lightgreen;
+}
+
+.marker-selected {
+    border: 2px solid lightgreen;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(0.0, 0.0);
+        opacity: 0.0;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        transform: scale(2, 2);
+        opacity: 0.0;
+    }
 }

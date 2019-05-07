@@ -1,13 +1,21 @@
-<app-background #background></app-background>
+<mat-grid-list cols=2>
+  <mat-grid-tile>
 
-<app-person #person gridX=6 gridY=18></app-person>
+    <div class="background-wrapper">
+      <img src="../assets/background.png"/>
+      <div #person class="person" gridX=6 gridY=18></div>
+      <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker"></div>
+      <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker"></div>
+      <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker"></div>
+      <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker"></div>
+      <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker"></div>
+    </div>
 
-<app-marker #educationMarker gridX=9 gridY=13></app-marker>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    other
+  </mat-grid-tile>
 
-<!-- <app-marker #firstInternshipMarker gridX="" gridY=""></app-marker>
-<app-marker #secondInternshipMarker gridX="" gridY=""></app-marker>
-<app-marker #thirdInternshipMarker gridX="" gridY=""></app-marker>
-<app-marker #capitalOneTDPMarker gridX="" gridY=""></app-marker>
-<app-marker #capitalOneMNavMarker gridX="" gridY=""></app-marker> -->
+</mat-grid-list>
 
 <router-outlet></router-outlet>

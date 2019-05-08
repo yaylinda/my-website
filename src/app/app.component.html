@@ -1,19 +1,39 @@
-<mat-grid-list cols=2>
-  <mat-grid-tile>
+<mat-grid-list cols=1 rowHeight="fit">
 
+  <mat-grid-tile>
     <div class="background-wrapper">
-      <img src="../assets/background.png"/>
+      <img src="../assets/background.png" />
       <div #person class="person" gridX=6 gridY=18></div>
-      <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker"></div>
-      <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker"></div>
-      <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker"></div>
-      <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker"></div>
-      <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker"></div>
-    </div>
+      <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker"
+        matTooltip="Linda's childhood years (0-18). Click to learn more!">
 
+      </div>
+      <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker">
+
+      </div>
+      <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker">
+
+      </div>
+      <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker">
+
+      </div>
+      <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker">
+
+      </div>
+    </div>
   </mat-grid-tile>
+
   <mat-grid-tile>
-    other
+        <mat-card #infoCard class="info-card">
+            <div mat-card-avatar >
+              <img src="../assets/circle-icon.svg"/>
+            </div>
+            <mat-card-title></mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          <mat-card-content>
+            <p></p>
+          </mat-card-content>
+        </mat-card>
   </mat-grid-tile>
 
 </mat-grid-list>

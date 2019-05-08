@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener, ViewChild, ElementRef } from '@angular/core';
-import { MarkerComponent } from './marker/marker.component';
+import { LifeData } from './util/life-data';
 
 @Component({
   selector: 'app-root',
@@ -27,14 +27,28 @@ export class AppComponent implements OnInit {
   @ViewChild("capitalOnePart2Marker", {read: ElementRef}) 
   capitalOnePart2Marker: ElementRef;
 
+  @ViewChild("infoCard", {read: ElementRef})
+  infoCard: ElementRef;
+
   gridSize: number;
   moveInterval: number;
   markersList: ElementRef[];
+  isCollide: boolean;
+  lifeData: LifeData;
+  collidedLabel: string;
+  cardInfo: {};
 
-  constructor() {
+  constructor(lifeData: LifeData) {
     console.log('constructor called...');
     this.gridSize = 16;
     this.moveInterval = this.gridSize / 2;
+    this.isCollide = false;
+    this.lifeData = lifeData;
+    this.cardInfo = {
+      'title': 'Initial',
+      'subtitle': '',
+      'content': ''
+    }
   }
 
   ngOnInit() {
@@ -62,43 +76,69 @@ export class AppComponent implements OnInit {
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
 
-    const currentX = this.personRef.nativeElement.getBoundingClientRect().x;
-    const currentY = this.personRef.nativeElement.getBoundingClientRect().y;
+    console.log(`pressed: ${event.keyCode}`);
 
+    const currentX = parseInt(this.personRef.nativeElement.style.left.replace('px', ''));
+    const currentY = parseInt(this.personRef.nativeElement.style.top.replace('px', ''));
+
+    console.log(`currentX: ${currentX}, currentY: ${currentY}`);
     let newX, newY;
 
     switch(event.keyCode) {
       case 37:
+      case 65:
         newX = currentX - this.moveInterval;
         newY = currentY;
         this.personRef.nativeElement.style.left = `${newX}px`;
-        break; 
+        break;
       case 38:
+      case 87:
         newX = currentX;
         newY = currentY - this.moveInterval
         this.personRef.nativeElement.style.top = `${newY}px`;
         break;
       case 39:
+      case 68:
         newX = currentX + this.moveInterval;
         newY = currentY;
         this.personRef.nativeElement.style.left = `${newX}px`;
         break;
       case 40:
+      case 83:
         newX = currentX;
         newY = currentY + this.moveInterval;
         this.personRef.nativeElement.style.top = `${newY}px`;
         break;
+      case 13:
+      case 32:
+        console.log('TODO - show info');
+        break;
       default:
-        console.log('ignoring non-arrow keypresses');
+        console.log('ignoring unknown keypress...');
         break;
     }
 
+    console.log(`newX: ${newX}, newY: ${newY}`);
+
     this.markersList.forEach(m => {
       if (this.calculateCollision(m)) {
-        console.log(`COLLIDE! with: ${m.nativeElement.getAttribute('label')}`);
-        m.nativeElement.querySelector('.marker').classList.add('marker-selected');
+        m.nativeElement.classList.add('marker-selected');
+        this.isCollide = true;
+        this.collidedLabel = m.nativeElement.getAttribute('label');
+        console.log(`COLLIDE! with: ${this.collidedLabel}`);
+        this.cardInfo = this.lifeData.data[this.collidedLabel];
+        console.log(this.cardInfo);
+        this.infoCard.nativeElement.querySelector('mat-card-title').innerText = this.cardInfo['title'];
+        this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = this.cardInfo['subtitle'];
+        this.infoCard.nativeElement.querySelector('mat-card-content').innerText = this.cardInfo['content'];
       } else {
-        m.nativeElement.querySelector('.marker').classList.remove('marker-selected');
+        m.nativeElement.classList.remove('marker-selected');
+        this.isCollide = false;
+        this.cardInfo = {
+          'title': 'Walking...',
+          'subtitle': '',
+          'content': ''
+        }
       }
     });
   }

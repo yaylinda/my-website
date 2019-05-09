@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener, ViewChild, ElementRef } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { LifeData } from './util/life-data';
 
 @Component({
@@ -37,13 +38,15 @@ export class AppComponent implements OnInit {
   lifeData: LifeData;
   collidedLabel: string;
   cardInfo: {};
+  numCols: numher;
 
-  constructor(lifeData: LifeData) {
+  constructor(lifeData: LifeData, deviceService: DeviceDetectorService) {
     console.log('constructor called...');
     this.gridSize = 16;
     this.moveInterval = this.gridSize / 2;
     this.isCollide = false;
     this.lifeData = lifeData;
+    this.numCols = deviceService.isMobile() ? 1 : 2
   }
 
   ngOnInit() {

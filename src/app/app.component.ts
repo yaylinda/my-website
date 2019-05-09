@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener, ViewChild, ElementRef } from '@angular/core';
 import { LifeData } from './util/life-data';
+import { exists } from 'fs';
 
 @Component({
   selector: 'app-root',
@@ -44,11 +45,6 @@ export class AppComponent implements OnInit {
     this.moveInterval = this.gridSize / 2;
     this.isCollide = false;
     this.lifeData = lifeData;
-    this.cardInfo = {
-      'title': 'Initial',
-      'subtitle': '',
-      'content': ''
-    }
   }
 
   ngOnInit() {
@@ -61,6 +57,9 @@ export class AppComponent implements OnInit {
       this.capitalOnePart2Marker
     ];
     this.setMarkerLocations();
+    this.infoCard.nativeElement.querySelector('mat-card-title').innerText = 'Exploring...';
+    this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = '';
+    this.infoCard.nativeElement.querySelector('mat-card-content').innerText = '';
   }
 
   setMarkerLocations() {
@@ -120,7 +119,7 @@ export class AppComponent implements OnInit {
 
     console.log(`newX: ${newX}, newY: ${newY}`);
 
-    this.markersList.forEach(m => {
+    for (let m of this.markersList) {
       if (this.calculateCollision(m)) {
         m.nativeElement.classList.add('marker-selected');
         this.isCollide = true;
@@ -131,15 +130,18 @@ export class AppComponent implements OnInit {
         this.infoCard.nativeElement.querySelector('mat-card-title').innerText = this.cardInfo['title'];
         this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = this.cardInfo['subtitle'];
         this.infoCard.nativeElement.querySelector('mat-card-content').innerText = this.cardInfo['content'];
+        this.infoCard.nativeElement.querySelector('.circle-icon').classList.remove('circle-icon-gray');
+        break;
       } else {
         m.nativeElement.classList.remove('marker-selected');
         this.isCollide = false;
-        this.cardInfo = {
-          'title': 'Walking...',
-          'subtitle': '',
-          'content': ''
-        }
+        this.infoCard.nativeElement.querySelector('mat-card-title').innerText = 'Exploring...';
+        this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = '';
+        this.infoCard.nativeElement.querySelector('mat-card-content').innerText = '';
+        this.infoCard.nativeElement.querySelector('.circle-icon').classList.add('circle-icon-gray');
       }
+    }
+    this.markersList.forEach(m => {
     });
   }
 

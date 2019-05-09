@@ -117,7 +117,17 @@ export class AppComponent implements OnInit {
     }
 
     console.log(`newX: ${newX}, newY: ${newY}`);
+    this.displayCardInfo();
+  }
 
+  goToMarker(gridX: number, gridY: number) {
+    console.log(`clicked gridX: ${gridX}, gridY: ${gridY}`);
+    this.personRef.nativeElement.style.left = `${this.gridSize * gridX}px`;
+    this.personRef.nativeElement.style.top = `${this.gridSize * gridY}px`;
+    this.displayCardInfo();
+  }
+
+  displayCardInfo() {
     for (let m of this.markersList) {
       if (this.calculateCollision(m)) {
         m.nativeElement.classList.add('marker-selected');
@@ -140,8 +150,6 @@ export class AppComponent implements OnInit {
         this.infoCard.nativeElement.querySelector('.circle-icon').classList.add('circle-icon-gray');
       }
     }
-    this.markersList.forEach(m => {
-    });
   }
 
   calculateCollision(markerRef: ElementRef) {

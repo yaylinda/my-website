@@ -4,11 +4,11 @@
     <div class="background-wrapper">
       <img src="../assets/background.png" />
       <div #person class="person" gridX=6 gridY=18></div>
-      <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker"></div>
-      <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker"></div>
-      <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker"></div>
-      <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker"></div>
-      <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker"></div>
+      <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker" (click)="goToMarker(5, 15.5)"></div>
+      <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker" (click)="goToMarker(9, 13)"></div>
+      <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker" (click)="goToMarker(15, 9.5)"></div>
+      <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker" (click)="goToMarker(22.5, 12)"></div>
+      <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker" (click)="goToMarker(27.5, 10.5)"></div>
     </div>
   </mat-grid-tile>
 

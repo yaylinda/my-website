@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   lifeData: LifeData;
   collidedLabel: string;
   cardInfo: {};
-  numCols: numher;
+  numCols: number;
 
   constructor(lifeData: LifeData, deviceService: DeviceDetectorService) {
     console.log('constructor called...');

@@ -6,6 +6,7 @@ mat-grid-list {
 .background-wrapper {
     position: relative;
     overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .background-image {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener, ViewChild, ElementRef } from '@angular/core';
 import { LifeData } from './util/life-data';
-import { exists } from 'fs';
 
 @Component({
   selector: 'app-root',

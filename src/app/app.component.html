@@ -2,13 +2,10 @@
   <a class="resume-link" href="../assets/resume.pdf" target="_blank">Resume</a>
 </header>
 
-<section class="introduction">
   <mat-grid-list cols={{numCols}}>
     <mat-grid-tile>
       <div class="background-wrapper">
-        <div class="points">
-          Visited: {{visitedMarkerLabels.length}} / {{markersList.length}}
-        </div>
+        <div class="points">Visited: {{visitedMarkerLabels.length}} / {{markersList.length}}</div>
         <img #background class="background" src="../assets/background.png" />
         <div #person class="person" gridX=6 gridY=18></div>
         <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker" (click)="goToMarker(5, 15.5)">
@@ -43,9 +40,8 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</section>
 
-<section class="skills">
+<!-- <section class="skills">
   <mat-grid-list>
       <mat-grid-tile>
       </mat-grid-tile>
@@ -58,10 +54,10 @@
 
 <section class="projects">
 
-</section>
+</section> -->
 
-<footer>
+<!-- <footer>
   Footer
-</footer>
+</footer> -->
 
 <router-outlet></router-outlet>

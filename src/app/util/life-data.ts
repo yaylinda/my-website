@@ -7,7 +7,7 @@ export class LifeData {
         this.data['default'] = {
             'title': 'Exploring...',
             'subtitle': '',
-            'content': 'Move Pikachu with the arrow keys to explore points of interest (POI) on the map. Alternatively, click on a POI icon to travel there directly.'
+            'content': 'Move Pikachu with WASD keys to explore points of interest (POI) on the map. Alternatively, click on a POI icon to travel there directly.'
         }
         this.data['childhoodMarker'] = {
             'title': 'Linda\'s Childhood',
@@ -48,7 +48,7 @@ export class LifeData {
         }
         this.data['capitalOnePart1Marker'] = {
             'title': 'Life at Capital One',
-            'subtitle': 'July 2016 - Present | The working life',
+            'subtitle': 'July 2016 - Present | The actual working life',
             'content': 'TODO'
         }
         this.data['capitalOnePart2Marker'] = {

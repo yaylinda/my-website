@@ -37,7 +37,7 @@ header {
 }
 
 .points {
-    color: white;
+    color: aliceblue;
     font-family: 'Roboto Mono', monospace;
     position: absolute;
   top: 8px;
@@ -96,10 +96,21 @@ header {
     overflow-x: scroll;
     overflow-y: scroll;
     font-family: 'Raleway', sans-serif;
+    background: inherit;
+    box-shadow: none;
+}
+
+mat-card-title {
+    color: rgb(100, 255, 218);
+}
+
+mat-card-subtitle {
+    color: rgb(168, 178, 209);
 }
 
 mat-card-content {
     line-height: 1.5em;
+    color: aliceblue;
 }
 
 .circle-icon-gray {

@@ -1,7 +1,26 @@
-mat-grid-list {
-    /* height: 100%;
-    padding-bottom: 0; */
+header {
+    padding: 16px;
 }
+
+.resume-link {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    border: 1px solid rgb(100, 255, 218);
+    color: rgb(100, 255, 218);
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    text-decoration: none;
+    float: right;
+}
+
+.resume-link:hover {
+    cursor: pointer;
+    background-color: rgba(100, 255, 218, 0.07);
+}
+
 
 .background-wrapper {
     position: relative;
@@ -9,8 +28,21 @@ mat-grid-list {
     overflow-y: scroll;
 }
 
-.background-image {
-    filter: none;
+.background {
+    border-radius: 4px;
+}
+
+.background-grayscale {
+    filter: grayscale();
+}
+
+.points {
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
 }
 
 .person {
@@ -25,23 +57,23 @@ mat-grid-list {
 }
 
 .marker {
-    border: 2px solid white;
-    border-radius: 16px;
-    height: 8px;
-    width: 8px;
+    /* border: 2px solid white; */
+    /* border-radius: 16px; */
+    height: 24px;
+    width: 24px;
     position: absolute;
-    animation: pulsate 1s ease-out;
+    /* animation: pulsate 1s ease-out;
     animation-iteration-count: infinite; 
-    opacity: 0.0
+    opacity: 0.0 */
 }
 
 .marker:hover {
     cursor: pointer;
-    border: 2px solid cyan;
+    /* border: 2px solid rgb(100, 255, 218); */
 }
 
 .marker-selected {
-    border: 2px solid cyan;
+    /* border: 2px solid rgb(100, 255, 218); */
 }
 
 @keyframes pulsate {
@@ -58,11 +90,16 @@ mat-grid-list {
     }
 }
 
-.info-card {
+.mat-card {
     width: 530px;
     height: 303px;
     overflow-x: scroll;
     overflow-y: scroll;
+    font-family: 'Raleway', sans-serif;
+}
+
+mat-card-content {
+    line-height: 1.5em;
 }
 
 .circle-icon-gray {

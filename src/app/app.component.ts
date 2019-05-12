@@ -10,6 +10,9 @@ import { LifeData } from './util/life-data';
 })
 export class AppComponent implements OnInit {
 
+  @ViewChild("background", {read: ElementRef}) 
+  backgroundRef: ElementRef;
+
   @ViewChild("person", {read: ElementRef}) 
   personRef: ElementRef;
 
@@ -39,6 +42,7 @@ export class AppComponent implements OnInit {
   collidedLabel: string;
   cardInfo: {};
   numCols: number;
+  visitedMarkerLabels: string[];
 
   constructor(lifeData: LifeData, deviceService: DeviceDetectorService) {
     console.log('constructor called...');
@@ -46,7 +50,8 @@ export class AppComponent implements OnInit {
     this.moveInterval = this.gridSize / 2;
     this.isCollide = false;
     this.lifeData = lifeData;
-    this.numCols = deviceService.isMobile() ? 1 : 2
+    this.numCols = deviceService.isMobile() ? 1 : 2;
+    this.visitedMarkerLabels = [];
   }
 
   ngOnInit() {
@@ -59,9 +64,7 @@ export class AppComponent implements OnInit {
       this.capitalOnePart2Marker
     ];
     this.setMarkerLocations();
-    this.infoCard.nativeElement.querySelector('mat-card-title').innerText = 'Exploring...';
-    this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = '';
-    this.infoCard.nativeElement.querySelector('mat-card-content').innerText = '';
+    this.displayCardInfo();
   }
 
   setMarkerLocations() {
@@ -88,26 +91,26 @@ export class AppComponent implements OnInit {
     switch(event.keyCode) {
       case 37:
       case 65:
-        newX = currentX - this.moveInterval;
+        newX = Math.max(currentX - this.moveInterval, 0);
         newY = currentY;
         this.personRef.nativeElement.style.left = `${newX}px`;
         break;
       case 38:
       case 87:
         newX = currentX;
-        newY = currentY - this.moveInterval
+        newY = Math.max(currentY - this.moveInterval, 0);
         this.personRef.nativeElement.style.top = `${newY}px`;
         break;
       case 39:
       case 68:
-        newX = currentX + this.moveInterval;
+        newX = Math.min(currentX + this.moveInterval, this.backgroundRef.nativeElement.getBoundingClientRect().width - this.personRef.nativeElement.getBoundingClientRect().width);
         newY = currentY;
         this.personRef.nativeElement.style.left = `${newX}px`;
         break;
       case 40:
       case 83:
         newX = currentX;
-        newY = currentY + this.moveInterval;
+        newY = Math.min(currentY + this.moveInterval, this.backgroundRef.nativeElement.getBoundingClientRect().height - this.personRef.nativeElement.getBoundingClientRect().height);
         this.personRef.nativeElement.style.top = `${newY}px`;
         break;
       case 13:
@@ -134,23 +137,26 @@ export class AppComponent implements OnInit {
     for (let m of this.markersList) {
       if (this.calculateCollision(m)) {
         m.nativeElement.classList.add('marker-selected');
+        m.nativeElement.querySelector('.circle-icon').classList.remove('circle-icon-gray');
         this.isCollide = true;
         this.collidedLabel = m.nativeElement.getAttribute('label');
         console.log(`COLLIDE! with: ${this.collidedLabel}`);
         this.cardInfo = this.lifeData.data[this.collidedLabel];
         console.log(this.cardInfo);
-        this.infoCard.nativeElement.querySelector('mat-card-title').innerText = this.cardInfo['title'];
-        this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = this.cardInfo['subtitle'];
         this.infoCard.nativeElement.querySelector('mat-card-content').innerText = this.cardInfo['content'];
         this.infoCard.nativeElement.querySelector('.circle-icon').classList.remove('circle-icon-gray');
+        this.backgroundRef.nativeElement.classList.add('background-grayscale');
+        if (this.visitedMarkerLabels.indexOf(this.collidedLabel) < 0) {
+          this.visitedMarkerLabels.push(this.collidedLabel);
+        }
         break;
       } else {
         m.nativeElement.classList.remove('marker-selected');
         this.isCollide = false;
-        this.infoCard.nativeElement.querySelector('mat-card-title').innerText = 'Exploring...';
-        this.infoCard.nativeElement.querySelector('mat-card-subtitle').innerText = '';
-        this.infoCard.nativeElement.querySelector('mat-card-content').innerText = '';
+        this.cardInfo = this.lifeData.data['default'];
+        this.infoCard.nativeElement.querySelector('mat-card-content').innerText = this.cardInfo['content'];
         this.infoCard.nativeElement.querySelector('.circle-icon').classList.add('circle-icon-gray');
+        this.backgroundRef.nativeElement.classList.remove('background-grayscale');
       }
     }
   }

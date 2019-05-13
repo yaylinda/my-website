@@ -31,11 +31,11 @@
 
     <mat-grid-tile>
       <mat-card #infoCard class="info-card">
-        <div class="mat-card-avatar">
-          <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
-        </div>
-        <mat-card-title>{{cardInfo.title}}</mat-card-title>
-        <mat-card-subtitle>{{cardInfo.subtitle}}</mat-card-subtitle>
+        <mat-card-header>
+            <div mat-card-avatar class="circle-icon circle-icon-gray"></div>
+              <mat-card-title>{{cardInfo.title}}</mat-card-title>
+              <mat-card-subtitle>{{cardInfo.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
         <mat-card-content></mat-card-content>
       </mat-card>
     </mat-grid-tile>

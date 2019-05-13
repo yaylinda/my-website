@@ -113,11 +113,10 @@ mat-card-content {
     color: aliceblue;
 }
 
-.circle-icon-gray {
-    filter: grayscale();
+.circle-icon {
+    background-image: url(../assets/circle-icon.svg);
 }
 
-.mat-card-avatar {
-    margin: auto;
-    margin-bottom: 16px;
+.circle-icon-gray {
+    filter: grayscale();
 }

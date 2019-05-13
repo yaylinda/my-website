@@ -6,7 +6,7 @@ export class LifeData {
         this.data = {};
         this.data['default'] = {
             'title': 'Exploring...',
-            'subtitle': '',
+            'subtitle': 'TODO',
             'content': 'Move Pikachu with WASD keys to explore points of interest (POI) on the map. Alternatively, click on a POI icon to travel there directly.'
         }
         this.data['childhoodMarker'] = {
@@ -32,16 +32,16 @@ export class LifeData {
         this.data['internshipsMarker'] = {
             'title': 'Internships',
             'subtitle': 'Summers of 2015, 2014, 2013 | A taste of the working life',
-            'content': 'During my three college summers, I took three internships with three different companies. Each summer, I was fortunate enough to have great mentors and work on and own my own projects. These experiences taught me a lot about what a career in Software Engineering entailed. I learned new languages, best practices, design patterns, Agile methodologies, and how to apply my theoretical knowledge to solve real-world problems. Turns out, it\'s not all just algorithms and data structures!\n\n'
+            'content': 'During my three college summers, I took three internships with three different companies. Each summer, I was fortunate enough to have great mentors and work on and have ownership over meaningful projects. These experiences taught me a lot about what a career in Software Engineering entailed. I learned new languages, best practices, design patterns, Agile methodologies, and how to apply the theoretical knowledge I learned in school to solve real-world problems. Turns out, it\'s not all just algorithms and data structures!\n\n'
             + 'Summer 2015 - Shape Security\n'
             + '\t- Selected for the KPCB Engineering Fellowship\n'
             + '\t- Experienced the Silicon Valley start-up life\n'
-            + '\t- Developed tools for ES6\n'
-            + '\t- Contributed to the open-source project called Shift\n\n'
+            + '\t- Developed Java tools for ES6\n'
+            + '\t- Contributed to the Shift open-source project\n\n'
             + 'Summer 2014 - Pros Inc.\n'
             + '\t- Learned how to develop enterprise-level applications in Java\n'
             + '\t- Learned the Spring Framework, and fundamentals of API development\n'
-            + '\t- First experience with relational databases and SQL\n\n'
+            + '\t- Gained experience in relational databases and SQL\n\n'
             + 'Summer 2013 - Jones McClure Publishing\n'
             + '\t- Learned C#, JavaScript, HTML, CSS, and stand-ups\n'
             + '\t- Built my first web application\n'

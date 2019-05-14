@@ -38,7 +38,8 @@ export class AppComponent implements OnInit {
   lifeData: LifeData;
   collidedLabel: string;
   cardInfo: {};
-  numCols: number;
+  mapNumCols: number;
+  skillNumCols: number;
   visitedMarkerLabels: string[];
 
   constructor(lifeData: LifeData, deviceService: DeviceDetectorService) {
@@ -47,7 +48,8 @@ export class AppComponent implements OnInit {
     this.moveInterval = this.gridSize / 2;
     this.isCollide = false;
     this.lifeData = lifeData;
-    this.numCols = deviceService.isMobile() ? 1 : 2;
+    this.mapNumCols = deviceService.isMobile() ? 1 : 2;
+    this.skillNumCols = deviceService.isMobile() ? 1 : 4;
     this.visitedMarkerLabels = [];
   }
 

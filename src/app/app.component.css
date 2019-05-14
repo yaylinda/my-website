@@ -74,10 +74,6 @@ header {
     /* border: 2px solid rgb(100, 255, 218); */
 }
 
-.marker-selected {
-    /* border: 2px solid rgb(100, 255, 218); */
-}
-
 @keyframes pulsate {
     0% {
         transform: scale(0.0, 0.0);
@@ -126,4 +122,12 @@ mat-card-content {
 
 .card-content-sub-header {
     color: rgb(100, 255, 218);
+}
+
+
+/* SKILLS */
+.skills-card-header {
+    text-align: center;
+    justify-content: center;
+    line-height: 2em;
 }

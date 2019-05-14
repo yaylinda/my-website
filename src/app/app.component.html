@@ -29,7 +29,6 @@
   </mat-grid-tile>
 
   <mat-grid-tile>
-
     <!-- Default Card -->
     <mat-card #infoCard *ngIf="!collidedLabel" class="info-card">
       <mat-card-header>
@@ -138,10 +137,79 @@
         TODO
       </mat-card-content>
     </mat-card>
-
   </mat-grid-tile>
+</mat-grid-list>
 
+<br>
 
+<mat-grid-list class="skills-list" cols={{4}}>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header class="skills-card-header">
+        <mat-card-title>Backend Skills</mat-card-title>
+        <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li>Java, Spring Framework, SpringBoot</li>
+          <li>Python</li>
+          <li>Relationtional databases: MemSQL, PostgreSQL</li>
+          <li>Non-relationship databases: Redis, MongoDB, ElastiCache</li>
+          <li>Docker</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="skills-card-header">
+          <mat-card-title>Frontend Skills</mat-card-title>
+          <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>JavaScript, TypeScript, HTML/CSS</li>
+            <li>NodeJS</li>
+            <li>Express, Restify</li>
+            <li>Angular 7</li>
+            <li>Flutter, Dart</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+          <mat-card-header class="skills-card-header">
+            <mat-card-title>Cloud</mat-card-title>
+            <mat-card-subtitle>Various AWS services</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <ul>
+              <li>S3</li>
+              <li>EC2, Security Groups, Load Balancers, Target Groups</li>
+              <li>ECS</li>
+              <li>SQS</li>
+              <li>Route 53</li>
+              <li>Cloud Formation Templates</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card>
+            <mat-card-header class="skills-card-header">
+              <mat-card-title>Data Skills</mat-card-title>
+              <mat-card-subtitle>Analysis and visualizations</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>R, RStudio</li>
+                <li>Python</li>
+                <li>Julia</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
 </mat-grid-list>
 
 <router-outlet></router-outlet>

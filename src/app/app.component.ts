@@ -31,9 +31,6 @@ export class AppComponent implements OnInit {
   @ViewChild("capitalOnePart2Marker", {read: ElementRef}) 
   capitalOnePart2Marker: ElementRef;
 
-  @ViewChild("infoCard", {read: ElementRef})
-  infoCard: ElementRef;
-
   gridSize: number;
   moveInterval: number;
   markersList: ElementRef[];
@@ -143,8 +140,6 @@ export class AppComponent implements OnInit {
         console.log(`COLLIDE! with: ${this.collidedLabel}`);
         this.cardInfo = this.lifeData.data[this.collidedLabel];
         console.log(this.cardInfo);
-        this.infoCard.nativeElement.querySelector('mat-card-content').innerText = this.cardInfo['content'];
-        this.infoCard.nativeElement.querySelector('.circle-icon').classList.remove('circle-icon-gray');
         this.backgroundRef.nativeElement.classList.add('background-grayscale');
         if (this.visitedMarkerLabels.indexOf(this.collidedLabel) < 0) {
           this.visitedMarkerLabels.push(this.collidedLabel);
@@ -153,9 +148,8 @@ export class AppComponent implements OnInit {
       } else {
         m.nativeElement.classList.remove('marker-selected');
         this.isCollide = false;
+        this.collidedLabel = null;
         this.cardInfo = this.lifeData.data['default'];
-        this.infoCard.nativeElement.querySelector('mat-card-content').innerText = this.cardInfo['content'];
-        this.infoCard.nativeElement.querySelector('.circle-icon').classList.add('circle-icon-gray');
         this.backgroundRef.nativeElement.classList.remove('background-grayscale');
       }
     }

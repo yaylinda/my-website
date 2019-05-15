@@ -3,6 +3,20 @@ header {
     height: 64px;
 }
 
+.section-header {
+    text-align: center;
+}
+.section-header-number {
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(100, 255, 218);
+}
+
+.section-header-text {
+    font-family: 'Raleway', sans-serif;
+    color: aliceblue;
+    margin-left: 16px;
+}
+
 .resume-link {
     background-color: rgba(0, 0, 0, 0);
     border-radius: 2px;
@@ -23,7 +37,6 @@ header {
     background-color: rgba(100, 255, 218, 0.07);
 }
 
-
 .background-wrapper {
     position: relative;
     overflow-x: scroll;
@@ -42,9 +55,9 @@ header {
     color: aliceblue;
     font-family: 'Roboto Mono', monospace;
     position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 100;
+    top: 8px;
+    right: 8px;
+    z-index: 100;
 }
 
 .person {
@@ -124,10 +137,26 @@ mat-card-content {
     color: rgb(100, 255, 218);
 }
 
-
 /* SKILLS */
 .skills-card-header {
     text-align: center;
     justify-content: center;
     line-height: 2em;
+}
+
+/* PROJECTS */
+.projects-card-header {
+    text-align: center;
+    justify-content: center;
+    line-height: 2em;
+}
+
+footer {
+    background: black;
+    color: aliceblue;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    vertical-align: center;
+    font-size: 10px;
+    height: 64px;
 }

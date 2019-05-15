@@ -2,214 +2,316 @@
   <a class="resume-link" href="../assets/resume.pdf" target="_blank">Resume</a>
 </header>
 
-<mat-grid-list cols={{mapNumCols}}>
-  <mat-grid-tile>
-    <div class="background-wrapper">
-      <div class="points">Visited: {{visitedMarkerLabels.length}} / {{markersList.length}}</div>
-      <img #background class="background" src="../assets/background.png" />
-      <div #person class="person" gridX=6 gridY=18></div>
-      <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker" (click)="goToMarker(5, 15.5)">
-        <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
-      </div>
-      <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker" (click)="goToMarker(9, 13)">
-        <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
-      </div>
-      <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker" (click)="goToMarker(15, 9.5)">
-        <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
-      </div>
-      <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker"
-        (click)="goToMarker(22.5, 12)">
-        <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
-      </div>
-      <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker"
-        (click)="goToMarker(27.5, 10.5)">
-        <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
-      </div>
-    </div>
-  </mat-grid-tile>
+<section>
 
-  <mat-grid-tile>
-    <!-- Default Card -->
-    <mat-card #infoCard *ngIf="!collidedLabel" class="info-card">
-      <mat-card-header>
-        <div mat-card-avatar class="circle-icon circle-icon-gray"></div>
-        <mat-card-title>Exploring...</mat-card-title>
-        <mat-card-subtitle>Get 5 points by visiting all 5 points on the map!</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>Move Pikachu around with WASD keys. Alternatively, click on an icon to travel there directly.
-      </mat-card-content>
-    </mat-card>
+  <h1 class="section-header">
+    <span class="section-header-number">00.</span>
+    <span class="section-header-text">Overview</span>
+  </h1>
 
-    <!-- Childhood Card -->
-    <mat-card #infoCard *ngIf="collidedLabel === 'childhoodMarker'" class="info-card">
-      <mat-card-header>
-        <div mat-card-avatar class="circle-icon"></div>
-        <mat-card-title>Linda's Childhood</mat-card-title>
-        <mat-card-subtitle>Ages 0-18</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p><b>1994: </b>born in Wuhan, China</p>
-        <p><b>1999: </b>moved to Portland, OR with parents; started elementary school</p>
-        <p><b>2001: </b>obtained a little brother</p>
-        <p><b>2002: </b>started serious piano lessons (first long-term activity)</p>
-        <p><b>2003: </b>moved to a house for the first time</p>
-        <p><b>2005: </b>graduated elementary school; started middle school (new school district)</p>
-        <p><b>2008: </b>graduated middle school; started high school</p>
-        <p><b>2010: </b>started IB Diploma program; took first programming class (C++)</p>
-        <p><b>2011: </b>quit piano lessons; first job (Kumon Tutor)</p>
-        <p><b>2012: </b>completed IB Diploma; graduated high school; started college</p>
-      </mat-card-content>
-    </mat-card>
+  <mat-grid-list cols={{mapNumCols}}>
+    <mat-grid-tile>
+      <div class="background-wrapper">
+        <div class="points">Visited: {{visitedMarkerLabels.length}} / {{markersList.length}}</div>
+        <img #background class="background" src="../assets/background.png" />
+        <div #person class="person" gridX=6 gridY=18></div>
+        <div #childhoodMarker class="marker" gridX=5 gridY=15.5 label="childhoodMarker" (click)="goToMarker(5, 15.5)">
+          <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
+        </div>
+        <div #collegeMarker class="marker" gridX=9 gridY=13 label="collegeMarker" (click)="goToMarker(9, 13)">
+          <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
+        </div>
+        <div #internshipsMarker class="marker" gridX=15 gridY=9.5 label="internshipsMarker"
+          (click)="goToMarker(15, 9.5)">
+          <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
+        </div>
+        <div #capitalOnePart1Marker class="marker" gridX=22.5 gridY=12 label="capitalOnePart1Marker"
+          (click)="goToMarker(22.5, 12)">
+          <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
+        </div>
+        <div #capitalOnePart2Marker class="marker" gridX=27.5 gridY=10.5 label="capitalOnePart2Marker"
+          (click)="goToMarker(27.5, 10.5)">
+          <img class="circle-icon circle-icon-gray" src="../assets/circle-icon.svg" />
+        </div>
+      </div>
+    </mat-grid-tile>
 
-    <!-- Education -->
-    <mat-card #infoCard *ngIf="collidedLabel === 'collegeMarker'" class="info-card">
-      <mat-card-header>
-        <div mat-card-avatar class="circle-icon"></div>
-        <mat-card-title>Education: Rice University</mat-card-title>
-        <mat-card-subtitle>August 2012 - May 2016 | B.S. Computer Science, Statistics</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
+    <mat-grid-tile>
+      <!-- Default Card -->
+      <mat-card #infoCard *ngIf="!collidedLabel" class="info-card">
+        <mat-card-header>
+          <div mat-card-avatar class="circle-icon circle-icon-gray"></div>
+          <mat-card-title>Exploring...</mat-card-title>
+          <mat-card-subtitle>Get 5 points by visiting all 5 points on the map!</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>Move Pikachu around with WASD keys. Alternatively, click on an icon to travel there directly.
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Childhood Card -->
+      <mat-card #infoCard *ngIf="collidedLabel === 'childhoodMarker'" class="info-card">
+        <mat-card-header>
+          <div mat-card-avatar class="circle-icon"></div>
+          <mat-card-title>Linda's Childhood</mat-card-title>
+          <mat-card-subtitle>Ages 0-18</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><b>1994: </b>born in Wuhan, China</p>
+          <p><b>1999: </b>moved to Portland, OR with parents; started elementary school</p>
+          <p><b>2001: </b>obtained a little brother</p>
+          <p><b>2002: </b>started serious piano lessons (first long-term activity)</p>
+          <p><b>2003: </b>moved to a house for the first time</p>
+          <p><b>2005: </b>graduated elementary school; started middle school (new school district)</p>
+          <p><b>2008: </b>graduated middle school; started high school</p>
+          <p><b>2010: </b>started IB Diploma program; took first programming class (C++)</p>
+          <p><b>2011: </b>quit piano lessons; first job (Kumon Tutor)</p>
+          <p><b>2012: </b>completed IB Diploma; graduated high school; started college</p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Education -->
+      <mat-card #infoCard *ngIf="collidedLabel === 'collegeMarker'" class="info-card">
+        <mat-card-header>
+          <div mat-card-avatar class="circle-icon"></div>
+          <mat-card-title>Education: Rice University</mat-card-title>
+          <mat-card-subtitle>August 2012 - May 2016 | B.S. Computer Science, Statistics</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            TODO
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Internship Card -->
+      <mat-card #infoCard *ngIf="collidedLabel === 'internshipsMarker'" class="info-card">
+        <mat-card-header>
+          <div mat-card-avatar class="circle-icon"></div>
+          <mat-card-title>Internships</mat-card-title>
+          <mat-card-subtitle>Summers of 2015, 2014, 2013 | A taste of the working life</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            During my three college summers, I took three internships with three different companies. Each summer, I was
+            fortunate enough to have had great mentors, and work on meaningful projects. These
+            experiences taught me a lot about what a career in Software Engineering entailed. I learned new languages,
+            best
+            practices, design patterns, Agile methodologies, and how to apply the theoretical knowledge I learned in
+            school
+            to solve real-world problems. Turns out, it's not all just algorithms and data structures!
+          </p>
+          <h3 class="card-content-sub-header">Shape Security (Summer 2015)</h3>
+          <ul>
+            <li>Selected for the KPCB Engineering Fellowship</li>
+            <li>Experienced the Silicon Valley start-up life</li>
+            <li>Developed Java tools for ES6</li>
+            <li>Contributed to the Shift open-source project</li>
+          </ul>
+          <h3 class="card-content-sub-header">Pros Inc. (Summer 2014)</h3>
+          <ul>
+            <li>Learned how to develop enterprise-level applications in Java</li>
+            <li>Learned the Spring Framework, and fundamentals of API development</li>
+            <li>Gained experience in relational databases and SQL</li>
+          </ul>
+          <h3 class="card-content-sub-header">Jones McClure Publishing (Summer 2013)</h3>
+          <ul>
+            <li>Learned C#, JavaScript, HTML, CSS, and stand-ups</li>
+            <li>Built my first web application</li>
+          </ul>
+          <br>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Capital One Pt1 -->
+      <mat-card #infoCard *ngIf="collidedLabel === 'capitalOnePart1Marker'" class="info-card">
+        <mat-card-header>
+          <div mat-card-avatar class="circle-icon"></div>
+          <mat-card-title>Life at Capital One</mat-card-title>
+          <mat-card-subtitle>July 2016 - Present | The actual working life</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
           TODO
-        </p>
-      </mat-card-content>
-    </mat-card>
+        </mat-card-content>
+      </mat-card>
 
-    <!-- Internship Card -->
-    <mat-card #infoCard *ngIf="collidedLabel === 'internshipsMarker'" class="info-card">
-      <mat-card-header>
-        <div mat-card-avatar class="circle-icon"></div>
-        <mat-card-title>Internships</mat-card-title>
-        <mat-card-subtitle>Summers of 2015, 2014, 2013 | A taste of the working life</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          During my three college summers, I took three internships with three different companies. Each summer, I was
-          fortunate enough to have had great mentors, and work on meaningful projects. These
-          experiences taught me a lot about what a career in Software Engineering entailed. I learned new languages,
-          best
-          practices, design patterns, Agile methodologies, and how to apply the theoretical knowledge I learned in
-          school
-          to solve real-world problems. Turns out, it's not all just algorithms and data structures!
-        </p>
-        <h3 class="card-content-sub-header">Shape Security (Summer 2015)</h3>
-        <ul>
-          <li>Selected for the KPCB Engineering Fellowship</li>
-          <li>Experienced the Silicon Valley start-up life</li>
-          <li>Developed Java tools for ES6</li>
-          <li>Contributed to the Shift open-source project</li>
-        </ul>
-        <h3 class="card-content-sub-header">Pros Inc. (Summer 2014)</h3>
-        <ul>
-          <li>Learned how to develop enterprise-level applications in Java</li>
-          <li>Learned the Spring Framework, and fundamentals of API development</li>
-          <li>Gained experience in relational databases and SQL</li>
-        </ul>
-        <h3 class="card-content-sub-header">Jones McClure Publishing (Summer 2013)</h3>
-        <ul>
-          <li>Learned C#, JavaScript, HTML, CSS, and stand-ups</li>
-          <li>Built my first web application</li>
-        </ul>
-        <br>
-      </mat-card-content>
-    </mat-card>
+      <!-- Capital One Pt 2 -->
+      <mat-card #infoCard *ngIf="collidedLabel === 'capitalOnePart2Marker'" class="info-card">
+        <mat-card-header>
+          <div mat-card-avatar class="circle-icon"></div>
+          <mat-card-title>The Marketing Navigator Journey</mat-card-title>
+          <mat-card-subtitle>July 2018 - Present | Deciding to stay at Capital One</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
 
-    <!-- Capital One Pt1 -->
-    <mat-card #infoCard *ngIf="collidedLabel === 'capitalOnePart1Marker'" class="info-card">
-      <mat-card-header>
-        <div mat-card-avatar class="circle-icon"></div>
-        <mat-card-title>Life at Capital One</mat-card-title>
-        <mat-card-subtitle>July 2016 - Present | The actual working life</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        TODO
-      </mat-card-content>
-    </mat-card>
+<section>
+  <h1 class="section-header">
+    <span class="section-header-number">01.</span>
+    <span class="section-header-text">Skills</span>
+  </h1>
 
-    <!-- Capital One Pt 2 -->
-    <mat-card #infoCard *ngIf="collidedLabel === 'capitalOnePart2Marker'" class="info-card">
-      <mat-card-header>
-        <div mat-card-avatar class="circle-icon"></div>
-        <mat-card-title>The Marketing Navigator Journey</mat-card-title>
-        <mat-card-subtitle>July 2018 - Present | Deciding to stay at Capital One</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        TODO
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+  <mat-grid-list class="skills-list" cols={{skillNumCols}}>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="skills-card-header">
+          <mat-card-title>Backend Skills</mat-card-title>
+          <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>Java, Spring Framework, SpringBoot</li>
+            <li>Python</li>
+            <li>Relational databases: MemSQL, PostgreSQL</li>
+            <li>Non-relational databases: Redis, MongoDB, ElastiCache</li>
+            <li>Docker</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="skills-card-header">
+          <mat-card-title>Frontend Skills</mat-card-title>
+          <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>JavaScript, TypeScript, HTML/CSS</li>
+            <li>NodeJS</li>
+            <li>Express, Restify</li>
+            <li>Angular 7</li>
+            <li>Flutter, Dart (Learning)</li>
+            <li>Swift (Learning)</li>
+            <li>Kotlin (Learning)</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="skills-card-header">
+          <mat-card-title>Data Skills</mat-card-title>
+          <mat-card-subtitle>Analysis and visualizations</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>R, RStudio</li>
+            <li>Python</li>
+            <li>Julia (learning)</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="skills-card-header">
+          <mat-card-title>Cloud</mat-card-title>
+          <mat-card-subtitle>Various AWS services</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>EC2, Security Groups, Load Balancers, Target Groups</li>
+            <li>S3</li>
+            <li>ECS</li>
+            <li>SQS</li>
+            <li>Route 53</li>
+            <li>Cloud Formation Templates</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
 
-<br>
+<section>
+  <h1 class="section-header">
+    <span class="section-header-number">02.</span>
+    <span class="section-header-text">Personal Projects</span>
+  </h1>
 
-<mat-grid-list class="skills-list" cols={{skillNumCols}}>
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header class="skills-card-header">
-        <mat-card-title>Backend Skills</mat-card-title>
-        <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <ul>
-          <li>Java, Spring Framework, SpringBoot</li>
-          <li>Python</li>
-          <li>Relationtional databases: MemSQL, PostgreSQL</li>
-          <li>Non-relationship databases: Redis, MongoDB, ElastiCache</li>
-          <li>Docker</li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header class="skills-card-header">
-        <mat-card-title>Frontend Skills</mat-card-title>
-        <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <ul>
-          <li>JavaScript, TypeScript, HTML/CSS</li>
-          <li>NodeJS</li>
-          <li>Express, Restify</li>
-          <li>Angular 7</li>
-          <li>Flutter, Dart</li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header class="skills-card-header">
-        <mat-card-title>Data Skills</mat-card-title>
-        <mat-card-subtitle>Analysis and visualizations</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <ul>
-          <li>R, RStudio</li>
-          <li>Python</li>
-          <li>Julia</li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header class="skills-card-header">
-        <mat-card-title>Cloud</mat-card-title>
-        <mat-card-subtitle>Various AWS services</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <ul>
-          <li>EC2, Security Groups, Load Balancers, Target Groups</li>
-          <li>S3</li>
-          <li>ECS</li>
-          <li>SQS</li>
-          <li>Route 53</li>
-          <li>Cloud Formation Templates</li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+  <mat-grid-list class="projects-list" cols={{projectNumCols}}>
 
-<router-outlet></router-outlet>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="projects-card-header">
+          <mat-card-title>Simple War (Server)</mat-card-title>
+          <mat-card-subtitle>TODO</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="projects-card-header">
+          <mat-card-title>Simple War (Clients)</mat-card-title>
+          <mat-card-subtitle>TODO</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="projects-card-header">
+          <mat-card-title>Poporopo</mat-card-title>
+          <mat-card-subtitle>TODO</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="projects-card-header">
+          <mat-card-title>Decoding Brain Data</mat-card-title>
+          <mat-card-subtitle>TODO</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="projects-card-header">
+          <mat-card-title>Various Data Visualizations</mat-card-title>
+          <mat-card-subtitle>TODO</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header class="projects-card-header">
+          <mat-card-title>TODO</mat-card-title>
+          <mat-card-subtitle>TODO</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          TODO
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+</section>
+
+<footer>
+  Developed and designed by Linda Zheng
+</footer>

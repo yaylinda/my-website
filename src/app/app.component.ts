@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
   cardInfo: {};
   mapNumCols: number;
   skillNumCols: number;
+  projectNumCols: number;
   visitedMarkerLabels: string[];
 
   constructor(lifeData: LifeData, deviceService: DeviceDetectorService) {
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit {
     this.lifeData = lifeData;
     this.mapNumCols = deviceService.isMobile() ? 1 : 2;
     this.skillNumCols = deviceService.isMobile() ? 1 : 4;
+    this.projectNumCols = deviceService.isMobile() ? 1 : 3;
     this.visitedMarkerLabels = [];
   }
 

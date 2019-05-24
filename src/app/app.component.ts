@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     this.lifeData = lifeData;
     this.mapNumCols = deviceService.isMobile() ? 1 : 2;
     this.skillNumCols = deviceService.isMobile() ? 1 : 4;
-    this.projectNumCols = deviceService.isMobile() ? 1 : 2;
+    this.projectNumCols = deviceService.isMobile() ? 1 : 1;
     this.visitedMarkerLabels = [];
   }
 

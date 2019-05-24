@@ -101,11 +101,9 @@ header {
     }
 }
 
-.mat-card {
-    width: 562px;
-    height: 335px;
-    overflow-x: scroll;
-    overflow-y: scroll;
+/* CARD */
+
+mat-card {
     font-family: 'Raleway', sans-serif;
     background: inherit;
     box-shadow: none;
@@ -125,6 +123,24 @@ mat-card-content {
     color: aliceblue;
 }
 
+mat-card-footer {
+    margin: 0;
+}
+
+mat-chip-list {
+    display: inline-block;
+}
+
+/* INFO */
+
+.info-card {
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 562px;
+    height: 335px;
+    box-shadow: none;
+}
+
 .circle-icon {
     background-image: url(../assets/circle-icon.svg);
 }
@@ -138,6 +154,10 @@ mat-card-content {
 }
 
 /* SKILLS */
+.skills-card {
+    box-shadow: none;
+}
+
 .skills-card-header {
     text-align: center;
     justify-content: center;
@@ -145,10 +165,37 @@ mat-card-content {
 }
 
 /* PROJECTS */
+
+.projects-card {
+    box-shadow: none;
+    width: 50%;
+    margin: 60px auto;
+}
+
 .projects-card-header {
     text-align: center;
     justify-content: center;
     line-height: 2em;
+}
+
+.links {
+    float: right;
+}
+
+.fa-icon {
+    height: 32px;
+    width: 32px;
+    font-size: 32px;
+    color: #e0e0e0;
+}
+
+.fa-icon:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+
+.fa-github {
+    margin-right: 8px;
 }
 
 footer {

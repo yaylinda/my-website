@@ -157,7 +157,7 @@
 
   <mat-grid-list class="skills-list" cols={{skillNumCols}}>
     <mat-grid-tile>
-      <mat-card>
+      <mat-card class="skills-card">
         <mat-card-header class="skills-card-header">
           <mat-card-title>Backend Skills</mat-card-title>
           <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
@@ -174,7 +174,7 @@
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
-      <mat-card>
+      <mat-card class="skills-card">
         <mat-card-header class="skills-card-header">
           <mat-card-title>Frontend Skills</mat-card-title>
           <mat-card-subtitle>Languages, Frameworks, etc.</mat-card-subtitle>
@@ -193,14 +193,15 @@
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
-      <mat-card>
+      <mat-card class="skills-card">
         <mat-card-header class="skills-card-header">
           <mat-card-title>Data Skills</mat-card-title>
           <mat-card-subtitle>Analysis and visualizations</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <ul>
-            <li>R, RStudio</li>
+            <li>R</li>
+            <li>RStudio</li>
             <li>Python</li>
             <li>Julia (learning)</li>
           </ul>
@@ -208,7 +209,7 @@
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile>
-      <mat-card>
+      <mat-card class="skills-card">
         <mat-card-header class="skills-card-header">
           <mat-card-title>Cloud</mat-card-title>
           <mat-card-subtitle>Various AWS services</mat-card-subtitle>
@@ -233,70 +234,103 @@
     <span class="section-header-number">02.</span>
     <span class="section-header-text">Personal Projects</span>
   </h1>
-
-  <mat-grid-list class="projects-list" cols={{projectNumCols}}>
-
-    <mat-grid-tile>
-      <mat-card>
+  <div class="projects">
+      <mat-card class="projects-card">
         <mat-card-header class="projects-card-header">
           <mat-card-title>Simple War</mat-card-title>
           <mat-card-subtitle>Online, real-time, turn-based, strategic board game</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          Simple War is a two-player correspondance game. Players can find matches in the lobby of the game. Once a game has started,
-          players take turns placing cards on a 5x5 board. Cards can either be a defensive Wall, or an offensive Troop. Walls
-          are stationary and will defend a lane with their higher defensive stat. Troops advance forward one square per turn, obliterating
-          any of the opponents' Walls or Troops in the way. Combine Troops on the battlefield for increased offensive strength.
-          Points are scored when a Troop moves all the way across the board, to the opponent's side. The first player to score 10 points wins.
-        
-          The backend API and "game-engine" logic layer was written in Java, SpringBoot 2.0. Data for the game states and user data are stored using MongoDB.
+          Simple War is a two-player correspondance game. Players can find matches in the lobby of the game. Once a game
+          has started,
+          players take turns placing cards on a 5x5 board. Cards can either be a defensive Wall, or an offensive Troop.
+          Walls
+          are stationary and will defend a lane with their higher defensive stat. Troops advance forward one square per
+          turn, obliterating
+          any of the opponents' Walls or Troops in the way. Combine Troops on the battlefield for increased offensive
+          strength.
+          Points are scored when a Troop moves all the way across the board, to the opponent's side. The first player to
+          score 10 points wins.
+
+          The backend API and "game-engine" logic layer was written in Java, SpringBoot 2.0. Data for the game states
+          and user data are stored using MongoDB.
           There are two versions of the client:
           Web-Client: Originally Angular 4, but recently upgraded to Angular 7
-          Mobile-Client: Took advantage of the Flutter Framework to write a single codebase for both Andoid and iPhone. Also, a good opportunity to learn Flutter and Dart.
-        
+          Mobile-Client: Took advantage of the Flutter Framework to write a single codebase for both Andoid and iPhone.
+          Also, a good opportunity to learn Flutter and Dart.
+
           [link coming soon]
         </mat-card-content>
         <mat-card-footer>
-          #java #angular #flutter #dart
+          <mat-chip-list>
+            <mat-chip>#java</mat-chip>
+            <mat-chip>#springboot</mat-chip>
+            <mat-chip>#angular</mat-chip>
+            <mat-chip>#flutter</mat-chip>
+            <mat-chip>#dart</mat-chip>
+            <mat-chip>#mongodb</mat-chip>
+          </mat-chip-list>
+          <span class="links">
+            <i class="fa-icon fab fa-github"></i>
+            <i class="fa-icon fas fa-external-link-alt"></i>
+          </span>
         </mat-card-footer>
       </mat-card>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-card>
+      <mat-card class="projects-card">
         <mat-card-header class="projects-card-header">
           <mat-card-title>Poporopo</mat-card-title>
           <mat-card-subtitle>Term Project for Advanced Computer Game Design</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          A competitive, real-time, cross-platform game combining the simple game mechanics of Doodle Jump, with the multi-player competitive racing nature of Mario Kart. To beat your friends to the top, try to find the best path up. Or, be lucky enough to come across the useful items.
-          Can support game sizes of one to four. Different maps have different terrains to race on. Try to find the best route!
-          
+          A competitive, real-time, cross-platform game combining the simple game mechanics of Doodle Jump, with the
+          multi-player competitive racing nature of Mario Kart. To beat your friends to the top, try to find the best
+          path up. Or, be lucky enough to come across the useful items.
+          Can support game sizes of one to four. Different maps have different terrains to race on. Try to find the best
+          route!
+
           [link to poporopo]
         </mat-card-content>
         <mat-card-footer>
-          #javascript
+          <mat-chip-list>
+            <mat-chip>#javascript</mat-chip>
+          </mat-chip-list>
+          <span class="links">
+              <i class="fa-icon fab fa-github"></i>
+              <i class="fa-icon fas fa-external-link-alt"></i>
+            </span>
         </mat-card-footer>
       </mat-card>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-card>
+      <mat-card class="projects-card">
         <mat-card-header class="projects-card-header">
           <mat-card-title>Decoding Electrocorticographic Readings (Brain Data)</mat-card-title>
           <mat-card-subtitle>Undergraduate Thesis for Statistics Major</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          Electrocorticographic readings were taken along 96 frequencies for 70 different nodes on the brain in response to clear and noisy audio-visual stimulus of a woman saying ’rock’ and ’rain’. The project goal is to produce interpretable models that determines the stimulus based on these readings. Multiple dimen- sionality reduction methods were tried with an emphasis on partial least squares variants. The data was then projected into a lower dimension where classifi- cation methods were used to predict the stimulus. Overall, higher-order sparse partial least squares with linear discriminant analysis was found to be the best combination for accurately determining the stimulus. A sparse model-stacking of these models produced a more accurate, but less interpretable model.
+          Electrocorticographic readings were taken along 96 frequencies for 70 different nodes on the brain in response
+          to clear and noisy audio-visual stimulus of a woman saying ’rock’ and ’rain’. The project goal is to produce
+          interpretable models that determines the stimulus based on these readings. Multiple dimensionality reduction
+          methods were tried with an emphasis on partial least squares variants. The data was then projected into a
+          lower dimension where classification methods were used to predict the stimulus. Overall, higher-order sparse
+          partial least squares with linear discriminant analysis was found to be the best combination for accurately
+          determining the stimulus. A sparse model-stacking of these models produced a more accurate, but less
+          interpretable model.
         </mat-card-content>
         <mat-card-footer>
-          #R #SQL #Python
+          <mat-chip-list>
+            <mat-chip>#R</mat-chip>
+            <mat-chip>#SQL</mat-chip>
+            <mat-chip>#Python</mat-chip>
+          </mat-chip-list>
+          <span class="links">
+              <i class="fa-icon fab fa-github"></i>
+              <i class="fa-icon fas fa-external-link-alt"></i>
+            </span>
         </mat-card-footer>
       </mat-card>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-card>
+      <mat-card class="projects-card">
         <mat-card-header class="projects-card-header">
           <mat-card-title>Data Visualizations</mat-card-title>
           <mat-card-subtitle>Various data visualization projects</mat-card-subtitle>
@@ -305,12 +339,18 @@
           TODO
         </mat-card-content>
         <mat-card-footer>
-          #R #SQL #Python
+          <mat-chip-list>
+            <mat-chip>#R</mat-chip>
+            <mat-chip>#SQL</mat-chip>
+            <mat-chip>#Python</mat-chip>
+          </mat-chip-list>
+          <span class="links">
+              <i class="fa-icon fab fa-github"></i>
+              <i class="fa-icon fas fa-external-link-alt"></i>
+            </span>
         </mat-card-footer>
       </mat-card>
-    </mat-grid-tile>
-
-  </mat-grid-list>
+    </div>
 
 </section>
 

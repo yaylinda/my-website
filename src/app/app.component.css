@@ -178,6 +178,11 @@ mat-chip-list {
     line-height: 2em;
 }
 
+.github-links {
+    text-decoration: none;
+    color: rgb(100, 255, 218);
+}
+
 .links {
     float: right;
 }
@@ -194,16 +199,21 @@ mat-chip-list {
     opacity: 50%;
 }
 
-.fa-github {
-    margin-right: 8px;
+.fa-external-link-alt {
+    margin-left: 8px;
 }
 
-footer {
+.footer-div {
     background: black;
-    color: aliceblue;
     font-family: 'Roboto Mono', monospace;
-    text-align: center;
-    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     font-size: 10px;
     height: 64px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: aliceblue;
 }

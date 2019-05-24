@@ -235,125 +235,133 @@
     <span class="section-header-text">Personal Projects</span>
   </h1>
   <div class="projects">
-      <mat-card class="projects-card">
-        <mat-card-header class="projects-card-header">
-          <mat-card-title>Simple War</mat-card-title>
-          <mat-card-subtitle>Online, real-time, turn-based, strategic board game</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          Simple War is a two-player correspondance game. Players can find matches in the lobby of the game. Once a game
-          has started,
-          players take turns placing cards on a 5x5 board. Cards can either be a defensive Wall, or an offensive Troop.
-          Walls
-          are stationary and will defend a lane with their higher defensive stat. Troops advance forward one square per
-          turn, obliterating
-          any of the opponents' Walls or Troops in the way. Combine Troops on the battlefield for increased offensive
-          strength.
-          Points are scored when a Troop moves all the way across the board, to the opponent's side. The first player to
-          score 10 points wins.
+    <mat-card class="projects-card">
+      <mat-card-header class="projects-card-header">
+        <mat-card-title>Simple War</mat-card-title>
+        <mat-card-subtitle>Online, real-time, turn-based, strategic board game</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        Simple War is a two-player correspondance game. Players can find matches in the lobby of the game. Once a game
+        has started,
+        players take turns placing cards on a 5x5 board. Cards can either be a defensive Wall, or an offensive Troop.
+        Walls
+        are stationary and will defend a lane with their higher defensive stat. Troops advance forward one square per
+        turn, obliterating
+        any of the opponents' Walls or Troops in the way. Combine Troops on the battlefield for increased offensive
+        strength.
+        Points are scored when a Troop moves all the way across the board, to the opponent's side. The first player to
+        score 10 points wins.
+        <br /><br />
+        The backend API and "game-engine" logic layer was written in Java, SpringBoot 2.0. Data for the game states
+        and user data are stored using MongoDB.
+        <br /><br />
+        There are two versions of the client:
+        <br />
+        <a class="github-links" href="https://github.com/yaylinda/generic-frontend" target="_blank">Web-Client</a> -
+        Originally Angular 4, but recently upgraded to Angular 7
+        <br />
+        <a class="github-links" href="https://github.com/yaylinda/simple_war_client" target="_blank">Mobile-Client</a> -
+        Took advantage of the Flutter Framework to write a single codebase for both Andoid and iPhone.
+        <br /><br />
+        Also, a good opportunity for learning Flutter and Dart.
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-chip-list>
+          <mat-chip>#java</mat-chip>
+          <mat-chip>#springboot</mat-chip>
+          <mat-chip>#angular</mat-chip>
+          <mat-chip>#flutter</mat-chip>
+          <mat-chip>#dart</mat-chip>
+          <mat-chip>#mongodb</mat-chip>
+        </mat-chip-list>
+        <span class="links">
+          <a href="https://github.com/yaylinda/generic-backend" target="_blank"><i
+              class="fa-icon fab fa-github"></i></a>
+          <!-- <i class="fa-icon fas fa-external-link-alt"></i> -->
+        </span>
+      </mat-card-footer>
+    </mat-card>
 
-          The backend API and "game-engine" logic layer was written in Java, SpringBoot 2.0. Data for the game states
-          and user data are stored using MongoDB.
-          There are two versions of the client:
-          Web-Client: Originally Angular 4, but recently upgraded to Angular 7
-          Mobile-Client: Took advantage of the Flutter Framework to write a single codebase for both Andoid and iPhone.
-          Also, a good opportunity to learn Flutter and Dart.
-
-          [link coming soon]
-        </mat-card-content>
-        <mat-card-footer>
-          <mat-chip-list>
-            <mat-chip>#java</mat-chip>
-            <mat-chip>#springboot</mat-chip>
-            <mat-chip>#angular</mat-chip>
-            <mat-chip>#flutter</mat-chip>
-            <mat-chip>#dart</mat-chip>
-            <mat-chip>#mongodb</mat-chip>
-          </mat-chip-list>
-          <span class="links">
-            <i class="fa-icon fab fa-github"></i>
-            <i class="fa-icon fas fa-external-link-alt"></i>
-          </span>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="projects-card">
-        <mat-card-header class="projects-card-header">
-          <mat-card-title>Poporopo</mat-card-title>
-          <mat-card-subtitle>Term Project for Advanced Computer Game Design</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          A competitive, real-time, cross-platform game combining the simple game mechanics of Doodle Jump, with the
-          multi-player competitive racing nature of Mario Kart. To beat your friends to the top, try to find the best
-          path up. Or, be lucky enough to come across the useful items.
-          Can support game sizes of one to four. Different maps have different terrains to race on. Try to find the best
-          route!
-
-          [link to poporopo]
-        </mat-card-content>
-        <mat-card-footer>
-          <mat-chip-list>
-            <mat-chip>#javascript</mat-chip>
-          </mat-chip-list>
-          <span class="links">
+    <mat-card class="projects-card">
+      <mat-card-header class="projects-card-header">
+        <mat-card-title>Poporopo</mat-card-title>
+        <mat-card-subtitle>Term Project for Advanced Computer Game Design</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        A competitive, real-time, cross-platform game combining the simple game mechanics of Doodle Jump, with the
+        multi-player competitive racing nature of Mario Kart. Race your friends to the top by finding the best
+        path up. Or, be lucky enough to encounter useful items.
+        Supports game sizes of one to four. Different maps have different terrains to race on. Try to find the best
+        route!
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-chip-list>
+          <mat-chip>#javascript</mat-chip>
+        </mat-chip-list>
+        <!-- <span class="links">
               <i class="fa-icon fab fa-github"></i>
               <i class="fa-icon fas fa-external-link-alt"></i>
-            </span>
-        </mat-card-footer>
-      </mat-card>
+            </span> -->
+      </mat-card-footer>
+    </mat-card>
 
-      <mat-card class="projects-card">
-        <mat-card-header class="projects-card-header">
-          <mat-card-title>Decoding Electrocorticographic Readings (Brain Data)</mat-card-title>
-          <mat-card-subtitle>Undergraduate Thesis for Statistics Major</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          Electrocorticographic readings were taken along 96 frequencies for 70 different nodes on the brain in response
-          to clear and noisy audio-visual stimulus of a woman saying ’rock’ and ’rain’. The project goal is to produce
-          interpretable models that determines the stimulus based on these readings. Multiple dimensionality reduction
-          methods were tried with an emphasis on partial least squares variants. The data was then projected into a
-          lower dimension where classification methods were used to predict the stimulus. Overall, higher-order sparse
-          partial least squares with linear discriminant analysis was found to be the best combination for accurately
-          determining the stimulus. A sparse model-stacking of these models produced a more accurate, but less
-          interpretable model.
-        </mat-card-content>
-        <mat-card-footer>
-          <mat-chip-list>
-            <mat-chip>#R</mat-chip>
-            <mat-chip>#SQL</mat-chip>
-            <mat-chip>#Python</mat-chip>
-          </mat-chip-list>
-          <span class="links">
-              <i class="fa-icon fab fa-github"></i>
-              <i class="fa-icon fas fa-external-link-alt"></i>
-            </span>
-        </mat-card-footer>
-      </mat-card>
+    <mat-card class="projects-card">
+      <mat-card-header class="projects-card-header">
+        <mat-card-title>Decoding Electrocorticographic Readings (Brain Data)</mat-card-title>
+        <mat-card-subtitle>Undergraduate Thesis for Statistics Major</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        Electrocorticographic readings were taken along 96 frequencies for 70 different nodes on the brain in response
+        to clear and noisy audio-visual stimulus of a woman saying ’rock’ and ’rain’. The project goal is to produce
+        interpretable models that determines the stimulus based on these readings. Multiple dimensionality reduction
+        methods were tried with an emphasis on partial least squares variants. The data was then projected into a
+        lower dimension where classification methods were used to predict the stimulus. Overall, higher-order sparse
+        partial least squares with linear discriminant analysis was found to be the best combination for accurately
+        determining the stimulus. A sparse model-stacking of these models produced a more accurate, but less
+        interpretable model.
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-chip-list>
+          <mat-chip>#R</mat-chip>
+          <mat-chip>#SQL</mat-chip>
+          <mat-chip>#Python</mat-chip>
+        </mat-chip-list>
+        <span class="links">
+          <!-- <i class="fa-icon fab fa-github"></i> -->
+          <a href="../assets/ecog.pdf" target="_blank"><i class="fa-icon fas fa-external-link-alt"></i></a>
+        </span>
+      </mat-card-footer>
+    </mat-card>
 
-      <mat-card class="projects-card">
-        <mat-card-header class="projects-card-header">
-          <mat-card-title>Data Visualizations</mat-card-title>
-          <mat-card-subtitle>Various data visualization projects</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          TODO
-        </mat-card-content>
-        <mat-card-footer>
-          <mat-chip-list>
-            <mat-chip>#R</mat-chip>
-            <mat-chip>#SQL</mat-chip>
-            <mat-chip>#Python</mat-chip>
-          </mat-chip-list>
-          <span class="links">
-              <i class="fa-icon fab fa-github"></i>
-              <i class="fa-icon fas fa-external-link-alt"></i>
-            </span>
-        </mat-card-footer>
-      </mat-card>
-    </div>
+    <mat-card class="projects-card">
+      <mat-card-header class="projects-card-header">
+        <mat-card-title>Data Visualizations</mat-card-title>
+        <mat-card-subtitle>Various data visualization projects</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-chip-list>
+          <mat-chip>#R</mat-chip>
+          <mat-chip>#SQL</mat-chip>
+          <mat-chip>#Python</mat-chip>
+        </mat-chip-list>
+        <span class="links">
+          <a href="https://github.com/yaylinda/data-visualization-projects" target="_blank"><i
+              class="fa-icon fab fa-github"></i></a>
+          <!-- <i class="fa-icon fas fa-external-link-alt"></i> -->
+        </span>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 
 </section>
 
 <footer>
-  Developed and designed by Linda Zheng
+  <div class="footer-div">
+    <a class="footer-link" href="https://github.com/yaylinda/my-website" target="_blank">
+      Developed and designed by Linda Zheng 
+      <i class="fab fa-github"></i>
+    </a>    
+  </div>
 </footer>
